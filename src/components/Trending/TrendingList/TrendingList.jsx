@@ -4,7 +4,7 @@ import styles from './TrendingList.module.scss';
 export const TrendingList = ({ trending }) => {
   const elements = trending.map(({ title, id, poster_path, overview }) => {
     return (
-      <Link key={id} to={`/movies/${id}`}>
+      <Link key={id} to={`/movie/${id}`}>
         <p className={styles.title}>{title}</p>
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}

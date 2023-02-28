@@ -1,10 +1,12 @@
 import { MoviesListItem } from 'components/MoviesListItem/MoviesListItem';
-
+import styles from './MoviesList.module.scss';
 export const MoviesList = ({ movies }) => {
+  console.log('movies -->', movies);
+
   return (
-    <ul>
-      {movies.map(({ title, id }) => (
-        <MoviesListItem key={id} title={title} />
+    <ul className={styles.moviesList}>
+      {movies.map(({ title, id, poster_path }) => (
+        <MoviesListItem key={id} title={title} id={id} poster={poster_path} />
       ))}
     </ul>
   );

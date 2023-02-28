@@ -23,3 +23,15 @@ export const getMoviesBySearch = query => {
     },
   });
 };
+
+export const getMovieById = id => {
+  return moviesInstance.get(`/movie/${id}`);
+};
+
+export const getMoviesCredits = id => {
+  return moviesInstance.get(`/movie/${id}/credits`);
+};
+
+export const getMoviesReviews = id => {
+  return moviesInstance.get(`/movie/${id}/reviews`);
+};
