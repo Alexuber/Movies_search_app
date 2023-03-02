@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/751.f71bf4e3.chunk.css","mappings":"AAAA,2BAEE,WADA,eAGA,gBADA,kBAEA","sources":["pages/MovieCardPage/MovieCardPage.module.scss"],"sourcesContent":[".link {\n  font-size: 22px;\n  color: black;\n  text-align: center;\n  font-weight: 700;\n  text-transform: uppercase;\n}\n"],"names":[],"sourceRoot":""}
