@@ -2,7 +2,7 @@ import { SearchForm } from 'components/SearchForm/SearchForm';
 import { useState, useEffect } from 'react';
 import { getMoviesBySearch } from '../../services/moviesFetch';
 import { MoviesList } from 'components/MoviesList/MoviesList';
-import { useSearchParams, Link, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 const INITIAL_STATE = {
   movies: [],
@@ -12,7 +12,6 @@ const INITIAL_STATE = {
 const MoviesPage = () => {
   const [movies, setMovies] = useState(INITIAL_STATE.movies);
   const [searchParams, setSearchParams] = useSearchParams();
-  const location = useLocation();
 
   const prevQuery = searchParams.get('search');
 
