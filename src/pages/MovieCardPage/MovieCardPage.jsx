@@ -1,12 +1,14 @@
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovieById } from '../../services/moviesFetch';
+import styles from './MovieCardPage.module.scss';
 
 const INITIAL_STATE = {};
 
-export const MovieCard = () => {
+const MovieCardPage = () => {
   const [movieInfo, setMovieInfo] = useState(INITIAL_STATE);
   const { id } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
     const getMovieInfo = async () => {
@@ -37,15 +39,25 @@ export const MovieCard = () => {
   const fullYear = releaseDate.getFullYear();
   const genreEls = genres.map(({ name, id }) => <li key={id}>{name}</li>);
   const normalizedScore = Math.floor(vote_average * 10);
+  const backLinkHref = location.state?.from ?? '/';
 
   return (
     <main>
+      <Link to={backLinkHref}>
+        <button type="button" className="movieCardBtn">
+          Go back
+        </button>
+      </Link>
       <div className="card-wrapper">
         <img
-          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+              : 'https://via.placeholder.com/960x240'
+          }
           alt="movie-poster"
-          width="240"
-          height="320"
+          width="320"
+          height="480"
         />
         <div className="card-info">
           <h1 className="title">
@@ -59,19 +71,33 @@ export const MovieCard = () => {
           </div>
           <div className="genres">
             <h3>Genres</h3>
-            <ul className="genres">{genreEls}</ul>
+            <ul className="genres-list">{genreEls}</ul>
           </div>
         </div>
       </div>
-      <ul>
+      <ul className="additional">
         <li>
-          <Link to="cast">Cast</Link>
+          <Link
+            to="cast"
+            state={{ from: backLinkHref }}
+            className={styles.link}
+          >
+            Cast
+          </Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link
+            to="reviews"
+            state={{ from: backLinkHref }}
+            className={styles.link}
+          >
+            Reviews
+          </Link>
         </li>
       </ul>
       <Outlet />
     </main>
   );
 };
+
+export default MovieCardPage;

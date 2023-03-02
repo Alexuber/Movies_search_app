@@ -11,7 +11,6 @@ export const Trending = () => {
     const getTrending = async () => {
       try {
         const { data } = await trendingMovies();
-        console.log('🆑  data:', data);
         setTrending(data.results);
       } catch ({ response }) {
         setError(

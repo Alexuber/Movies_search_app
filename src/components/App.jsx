@@ -1,30 +1,42 @@
-// import '../styles/style.scss';
-import { Routes, Route, NavLink } from 'react-router-dom';
-import { Home } from 'pages/Home';
-import { Movies } from 'pages/Movies';
-import { NotFound } from 'pages/NotFound';
-import { MovieCard } from '../pages/MovieCard/MovieCard';
+import '../styles/style.scss';
+import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
+import { Suspense, lazy } from 'react';
+import { ToastContainer } from 'react-toastify';
 import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews';
+import { Loader } from 'shared/Loader/Loader';
+
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const MoviesPage = lazy(() => import('../pages/MoviesPage/MoviesPage'));
+const MovieCardPage = lazy(() =>
+  import('../pages/MovieCardPage/MovieCardPage')
+);
 
 export const App = () => {
   return (
     <div>
       <nav>
-        <NavLink to="/" end>
-          Home
-        </NavLink>
-        <NavLink to="/movies">Movies</NavLink>
+        <ul className="headerList">
+          <NavLink to="/" end className="navLink">
+            Home
+          </NavLink>
+          <NavLink to="/movies" className="navLink">
+            Movies
+          </NavLink>
+        </ul>
       </nav>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/movie/:id" element={<MovieCard />}>
-          <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Reviews />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movie/:id" element={<MovieCardPage />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Suspense>
+      <ToastContainer />
     </div>
   );
 };

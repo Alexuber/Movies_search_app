@@ -1,14 +1,14 @@
 import styles from './Button.module.scss';
 import PropTypes from 'prop-types';
 
-export const Button = ({ handleLoadMoreBtn }) => {
+export const Button = ({ handleClickBtn, children }) => {
   return (
-    <button type="button" className={styles.Button} onClick={handleLoadMoreBtn}>
-      Load more
+    <button type="button" className={styles.Button} onClick={handleClickBtn}>
+      {children}
     </button>
   );
 };
 
 Button.propTypes = {
-  handleLoadMoreBtn: PropTypes.func.isRequired,
+  handleClickBtn: PropTypes.func.isRequired,
 };

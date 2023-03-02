@@ -1,8 +1,7 @@
 import { MoviesListItem } from 'components/MoviesListItem/MoviesListItem';
 import styles from './MoviesList.module.scss';
-export const MoviesList = ({ movies }) => {
-  console.log('movies -->', movies);
 
+export const MoviesList = ({ movies }) => {
   return (
     <ul className={styles.moviesList}>
       {movies.map(({ title, id, poster_path }) => (
