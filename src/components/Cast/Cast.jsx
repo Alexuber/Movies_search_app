@@ -57,7 +57,7 @@ export const Cast = () => {
               ? `https://image.tmdb.org/t/p/w500/${profile_path}`
               : person
           }
-          alt="actor`s image"
+          alt="actor placeholder"
           width="180"
           height="270"
         />
