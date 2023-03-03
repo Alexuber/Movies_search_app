@@ -2,8 +2,6 @@ import '../styles/style.scss';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { Cast } from './Cast/Cast';
-import { Reviews } from './Reviews/Reviews';
 import { Loader } from 'shared/Loader/Loader';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
@@ -11,6 +9,8 @@ const MoviesPage = lazy(() => import('../pages/MoviesPage/MoviesPage'));
 const MovieCardPage = lazy(() =>
   import('../pages/MovieCardPage/MovieCardPage')
 );
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {
   return (

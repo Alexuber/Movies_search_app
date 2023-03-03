@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import styles from './MoviesListItem.module.scss';
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import posterPlaceholder from '../../assets/img/poster.webp';
+import styles from './MoviesListItem.module.scss';
 
 export const MoviesListItem = ({ title, id, poster }) => {
   const location = useLocation();
@@ -22,4 +23,10 @@ export const MoviesListItem = ({ title, id, poster }) => {
       <p className={styles.title}> {title}</p>
     </Link>
   );
+};
+
+MoviesListItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  poster: PropTypes.string,
 };

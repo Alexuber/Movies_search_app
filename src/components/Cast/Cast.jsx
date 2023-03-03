@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const INITIAL_VALUE = [];
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState(INITIAL_VALUE);
   const { id } = useParams();
 
@@ -71,3 +71,5 @@ export const Cast = () => {
 
   return <ul className={styles.list}>{actors}</ul>;
 };
+
+export default Cast;

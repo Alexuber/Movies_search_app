@@ -7,7 +7,7 @@ import styles from './Reviews.module.scss';
 import placeholder from '../../assets/img/placeholder.png';
 const INITIAL_VALUE = [];
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState(INITIAL_VALUE);
   const { id } = useParams();
 
@@ -55,3 +55,5 @@ export const Reviews = () => {
   ));
   return <ul className={styles.reviewsList}>{elements}</ul>;
 };
+
+export default Reviews;
