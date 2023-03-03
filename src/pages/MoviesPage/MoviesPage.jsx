@@ -41,7 +41,7 @@ const MoviesPage = () => {
 
   return (
     <main>
-      {!prevQuery && <SearchForm handleFormSubmit={handleFormSubmit} />}
+      <SearchForm handleFormSubmit={handleFormSubmit} />
       <MoviesList movies={movies} />
     </main>
   );

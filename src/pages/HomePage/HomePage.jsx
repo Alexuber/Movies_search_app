@@ -1,7 +1,8 @@
 import styles from './HomePage.module.scss';
-import { TrendingList } from '../../components/TrendingList/TrendingList';
 import { useState, useEffect } from 'react';
 import { trendingMovies } from '../../services/moviesFetch';
+import { MoviesList } from 'components/MoviesList/MoviesList';
+
 const INITIAL_VALUE = { trending: [], error: '' };
 
 const HomePage = () => {
@@ -24,7 +25,7 @@ const HomePage = () => {
   return (
     <main>
       <h1 className={styles.title}>Trending today</h1>
-      <TrendingList trending={trending} />
+      <MoviesList movies={trending} />
       {error && <p>{error}</p>}
     </main>
   );

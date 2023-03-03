@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { getMoviesCredits } from '../../services/moviesFetch';
 import { useParams } from 'react-router-dom';
 import person from '../../assets/img/person.jpg';
-import styles from './Cast.module.scss';
+import styles from './CastPage.module.scss';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

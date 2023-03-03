@@ -3,7 +3,7 @@ import { getMoviesReviews } from '../../services/moviesFetch';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import styles from './Reviews.module.scss';
+import styles from './ReviewsPage.module.scss';
 import placeholder from '../../assets/img/placeholder.png';
 const INITIAL_VALUE = [];
 
